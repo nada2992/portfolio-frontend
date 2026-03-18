@@ -1,10 +1,11 @@
 const skills = [
   { name: "React", level: "Expert", color: "text-blue-400" },
-  { name: "Golang", level: "Advanced", color: "text-cyan-500" },
   { name: "Tailwind", level: "Expert", color: "text-sky-400" },
+  { name: "TypeScript", level: "Intermediate", color: "text-blue-600" },
   { name: "Node.js", level: "Advanced", color: "text-green-500" },
   { name: "MongoDB", level: "Expert", color: "text-emerald-400" },
-  { name: "TypeScript", level: "Intermediate", color: "text-blue-600" },
+  { name: "Golang", level: "Beginner", color: "text-cyan-500" },
+  { name: "Docker", level: "Beginner", color: "text-blue-400" },
 ];
 
 export default function Skills() {
