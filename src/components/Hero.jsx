@@ -35,7 +35,14 @@ export default function Hero() {
           <Download className="h-4 w-4" />
           Download CV
         </a>
-        <button className="border border-neutral-800 px-8 py-3 rounded-full font-bold hover:bg-neutral-900 transition-all">
+        <button
+          onClick={() =>
+            document
+              .getElementById("contact")
+              .scrollIntoView({ behavior: "smooth" })
+          }
+          className="border border-neutral-800 px-8 py-3 rounded-full font-bold hover:bg-neutral-900 transition-all"
+        >
           Contact Me
         </button>
       </div>
