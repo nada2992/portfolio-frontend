@@ -13,14 +13,14 @@ export default function ProjectForm({ onProjectAdded }) {
 
   const handleSubmit = (e) => {
     const newProject = {
-      id: Date.now().toString(),
+      id: crypto.randomUUID(),
       title: form.title,
       description: form.description,
       tech_stack: form.tech_stack.split(",").map((item) => item.trim()),
       link: form.link,
     };
 
-    axios.post("http://localhost:8080/api/projects", newProject, {
+    axios.post("https://backend-stct.onrender.com/api/projects", newProject, {
       headers: {
         "Content-Type": "application/json",
         "X-Admin-Password": form.password,

@@ -21,7 +21,7 @@ function App() {
 
   const loadData = () => {
     axios
-      .get("http://localhost:8080/api/projects")
+      .get("https://backend-stct.onrender.com/api/projects")
       .then((res) => {
         const sortedData = res.data.reverse();
         setProjects(sortedData);

@@ -7,9 +7,12 @@ export default function ProjectCard({ project, onDelete, showDelete }) {
     if (!password) return;
 
     try {
-      await axios.delete(`http://localhost:8080/api/projects/${project.id}`, {
-        headers: { "X-Admin-Password": password },
-      });
+      await axios.delete(
+        `https://backend-stct.onrender.com/api/projects/${project.id}`,
+        {
+          headers: { "X-Admin-Password": password },
+        },
+      );
       onDelete();
     } catch (err) {
       alert("Delete failed: Check password or ID");
