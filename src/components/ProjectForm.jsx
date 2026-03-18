@@ -20,7 +20,7 @@ export default function ProjectForm({ onProjectAdded }) {
       link: form.link,
     };
 
-    axios.post("https://backend-stct.onrender.com/api/projects", newProject, {
+    axios.post("https://backend-1-2nv9.onrender.com/api/projects", newProject, {
       headers: {
         "Content-Type": "application/json",
         "X-Admin-Password": form.password,

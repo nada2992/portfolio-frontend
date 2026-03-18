@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://backend-stct.onrender.com/api";
+const API_URL = "https://backend-1-2nv9.onrender.com/api";
 
 export const getProjects = () => axios.get(`${API_URL}/projects`);
 export const deleteProject = (id, password) =>

@@ -8,7 +8,7 @@ export default function ProjectCard({ project, onDelete, showDelete }) {
 
     try {
       await axios.delete(
-        `https://backend-stct.onrender.com/api/projects/${project.id}`,
+        `https://backend-1-2nv9.onrender.com/api/projects/${project.id}`,
         {
           headers: { "X-Admin-Password": password },
         },
