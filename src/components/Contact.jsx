@@ -18,7 +18,7 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-5xl font-black tracking-tighter mb-6 leading-tight">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-black tracking-tighter mb-6 leading-tight">
             Let's build <br />
             <span
               className={

@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import Hero from "./components/Hero";
+import About from "./components/About";
 import Skills from "./components/Skills";
 import Navbar from "./components/Navbar";
 import Contact from "./components/Contact";
 import AdminDashboard from "./components/AdminDashboard";
 import ProjectsSection from "./components/ProjectsSection";
 import Footer from "./components/Footer";
+import ParticleBackground from "./components/ParticleBackground";
 import { motion } from "framer-motion";
 import { ThemeProvider, useTheme } from "./contexts/ThemeContext";
 
@@ -41,11 +43,21 @@ function AppContent() {
       : "bg-gradient-to-b from-white via-neutral-50 to-white text-neutral-900 selection:bg-blue-600/30";
 
   return (
-    <div className={`min-h-screen ${themeClasses}`}>
+    <div className={`min-h-screen ${themeClasses} relative`}>
+      <ParticleBackground />
       <Navbar />
-      <div className="max-w-6xl mx-auto px-6 pb-20 pt-10">
+      <div className="max-w-6xl mx-auto px-6 pb-20 pt-10 relative z-10">
         <motion.section {...fadeInParams}>
           <Hero />
+        </motion.section>
+
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1, duration: 0.6 }}
+        >
+          <About />
         </motion.section>
 
         <motion.section

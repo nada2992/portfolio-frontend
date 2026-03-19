@@ -11,7 +11,7 @@ const Footer = () => {
     <motion.footer
       {...fadeInParams}
       transition={{ delay: 0.8, duration: 0.6 }}
-      className="flex justify-between items-center mt-40 pt-10 border-t border-neutral-900 text-center text-neutral-600 text-[10px] tracking-[0.3em] uppercase"
+      className="flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center mt-40 pt-10 border-t border-neutral-900 text-center text-neutral-600 text-[10px] tracking-[0.3em] uppercase"
     >
       <div className="text-neutral-600 text-[10px] tracking-[0.3em] uppercase">
         © {new Date().getFullYear()} — Designed & Developed by Nada Hesham
