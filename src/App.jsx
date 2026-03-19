@@ -9,6 +9,7 @@ import AdminDashboard from "./components/AdminDashboard";
 import ProjectsSection from "./components/ProjectsSection";
 import Footer from "./components/Footer";
 import { motion } from "framer-motion";
+import { ThemeProvider, useTheme } from "./contexts/ThemeContext";
 
 const fadeInParams = {
   initial: { opacity: 0, y: 30 },
@@ -16,7 +17,8 @@ const fadeInParams = {
   transition: { duration: 0.6, ease: "easeOut" },
 };
 
-function App() {
+function AppContent() {
+  const { theme } = useTheme();
   const [projects, setProjects] = useState([]);
 
   const loadData = () => {
@@ -33,8 +35,13 @@ function App() {
     loadData();
   }, []);
 
+  const themeClasses =
+    theme === "dark"
+      ? "bg-gradient-to-b from-black via-neutral-950 to-black text-neutral-100 selection:bg-blue-400/30"
+      : "bg-gradient-to-b from-white via-neutral-50 to-white text-neutral-900 selection:bg-blue-600/30";
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-neutral-950 to-black text-neutral-100 selection:bg-blue-400/30">
+    <div className={`min-h-screen ${themeClasses}`}>
       <Navbar />
       <div className="max-w-6xl mx-auto px-6 pb-20 pt-10">
         <motion.section {...fadeInParams}>
@@ -67,6 +74,14 @@ function App() {
         <Footer />
       </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }
 

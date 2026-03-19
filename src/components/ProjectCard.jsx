@@ -1,7 +1,10 @@
 import axios from "axios";
 import { RiDeleteBin6Line, RiExternalLinkLine } from "react-icons/ri";
+import { useTheme } from "../contexts/ThemeContext";
 
 export default function ProjectCard({ project, onDelete, showDelete }) {
+  const { theme } = useTheme();
+
   const handleDelete = async () => {
     const password = prompt("Enter Admin Password:");
     if (!password) return;
@@ -20,9 +23,21 @@ export default function ProjectCard({ project, onDelete, showDelete }) {
   };
 
   return (
-    <div className="group relative bg-neutral-900/50 border border-neutral-800 p-8 rounded-3xl hover:border-blue-500/50 transition-all duration-500 h-full min-h-[250px] flex flex-col">
+    <div
+      className={`group relative border p-8 rounded-3xl transition-all duration-500 h-full min-h-[250px] flex flex-col ${
+        theme === "dark"
+          ? "bg-neutral-900/50 border-neutral-800 hover:border-blue-500/50"
+          : "bg-white border-neutral-200 hover:border-blue-500/50 shadow-sm hover:shadow-md"
+      }`}
+    >
       <div className="flex justify-between items-start mb-4">
-        <h3 className="text-2xl font-bold tracking-tight">{project.title}</h3>
+        <h3
+          className={`text-2xl font-bold tracking-tight ${
+            theme === "dark" ? "text-white" : "text-neutral-900"
+          }`}
+        >
+          {project.title}
+        </h3>
 
         <div className="flex gap-3">
           {project.link && (
@@ -30,7 +45,11 @@ export default function ProjectCard({ project, onDelete, showDelete }) {
               href={project.link}
               target="_blank"
               rel="noreferrer"
-              className="text-neutral-500 hover:text-white transition-colors"
+              className={`transition-colors ${
+                theme === "dark"
+                  ? "text-neutral-500 hover:text-white"
+                  : "text-neutral-600 hover:text-neutral-900"
+              }`}
             >
               <RiExternalLinkLine size={20} />
             </a>
@@ -39,7 +58,11 @@ export default function ProjectCard({ project, onDelete, showDelete }) {
           {showDelete && (
             <button
               onClick={handleDelete}
-              className="text-neutral-700 hover:text-red-500 transition-colors"
+              className={`transition-colors ${
+                theme === "dark"
+                  ? "text-neutral-700 hover:text-red-500"
+                  : "text-neutral-500 hover:text-red-600"
+              }`}
             >
               <RiDeleteBin6Line />
             </button>
@@ -47,7 +70,11 @@ export default function ProjectCard({ project, onDelete, showDelete }) {
         </div>
       </div>
 
-      <p className="text-neutral-400 text-sm leading-relaxed mb-6 flex-grow">
+      <p
+        className={`text-sm leading-relaxed mb-6 flex-grow ${
+          theme === "dark" ? "text-neutral-400" : "text-neutral-600"
+        }`}
+      >
         {project.description}
       </p>
 
@@ -55,7 +82,11 @@ export default function ProjectCard({ project, onDelete, showDelete }) {
         {project.tech_stack?.map((tech, i) => (
           <span
             key={i}
-            className="text-[10px] font-mono bg-neutral-800 text-neutral-400 px-3 py-1 rounded-full uppercase tracking-widest"
+            className={`text-[10px] font-mono px-3 py-1 rounded-full uppercase tracking-widest ${
+              theme === "dark"
+                ? "bg-neutral-800 text-neutral-400"
+                : "bg-neutral-100 text-neutral-700"
+            }`}
           >
             {tech}
           </span>
